@@ -22,18 +22,11 @@ namespace RockPaperScissors
 
                     int waitingtime = 500;
 
-                    Console.WriteLine("ROCK..");
-                    Thread.Sleep(waitingtime);
-                    Console.WriteLine("\n");
 
-                    Console.WriteLine("..PAPER..");
-                    Thread.Sleep(waitingtime);
-                    Console.WriteLine("\n");
-
-                    Console.WriteLine("..SCISSORS..");
-                    Thread.Sleep(waitingtime);
-                    Console.WriteLine("\n");
-
+                    //Metodikutsu joka näyttää 
+                    PrintandWait("Rock..", waitingtime);
+                    PrintandWait("..Paper..", waitingtime);
+                    PrintandWait("..Scissors", waitingtime);
 
                     Random rnd = new Random();
                     int computerchoice = rnd.Next(0, 3); //valitsee numeron 0-2 väliltä
@@ -78,6 +71,14 @@ namespace RockPaperScissors
 
                 }
             }
+        }
+
+        static void PrintandWait(string gameitems, int aika)
+        {
+            Console.WriteLine(gameitems);
+            Thread.Sleep(aika);
+            Console.WriteLine("\n");
+
         }
     }
 }
