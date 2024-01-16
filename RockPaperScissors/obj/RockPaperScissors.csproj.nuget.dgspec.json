@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JuttaVirta\\source\\repos\\RockPaperScissors\\RockPaperScissors\\RockPaperScissors.csproj": {}
+    "C:\\Users\\JuttaVirta_0sfcjaf\\Source\\Repos\\Rock-paper-scissors\\RockPaperScissors\\RockPaperScissors.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JuttaVirta\\source\\repos\\RockPaperScissors\\RockPaperScissors\\RockPaperScissors.csproj": {
+    "C:\\Users\\JuttaVirta_0sfcjaf\\Source\\Repos\\Rock-paper-scissors\\RockPaperScissors\\RockPaperScissors.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JuttaVirta\\source\\repos\\RockPaperScissors\\RockPaperScissors\\RockPaperScissors.csproj",
+        "projectUniqueName": "C:\\Users\\JuttaVirta_0sfcjaf\\Source\\Repos\\Rock-paper-scissors\\RockPaperScissors\\RockPaperScissors.csproj",
         "projectName": "RockPaperScissors",
-        "projectPath": "C:\\Users\\JuttaVirta\\source\\repos\\RockPaperScissors\\RockPaperScissors\\RockPaperScissors.csproj",
-        "packagesPath": "C:\\Users\\JuttaVirta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JuttaVirta\\source\\repos\\RockPaperScissors\\RockPaperScissors\\obj\\",
+        "projectPath": "C:\\Users\\JuttaVirta_0sfcjaf\\Source\\Repos\\Rock-paper-scissors\\RockPaperScissors\\RockPaperScissors.csproj",
+        "packagesPath": "C:\\Users\\JuttaVirta_0sfcjaf\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JuttaVirta_0sfcjaf\\Source\\Repos\\Rock-paper-scissors\\RockPaperScissors\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\JuttaVirta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JuttaVirta_0sfcjaf\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

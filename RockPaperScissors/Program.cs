@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace RockPaperScissors
 {
@@ -16,8 +17,23 @@ namespace RockPaperScissors
                 Console.WriteLine("\n 0 = Rock \n 1 = Paper \n 2 = Scissors \n 3 = Exit game");
                 try
                 {
-                    int userchoice = Convert.ToInt32(Console.ReadLine()); 
+                    int userchoice = Convert.ToInt32(Console.ReadLine());
                     //Console.WriteLine(userchoice);
+
+                    int waitingtime = 500;
+
+                    Console.WriteLine("ROCK..");
+                    Thread.Sleep(waitingtime);
+                    Console.WriteLine("\n");
+
+                    Console.WriteLine("..PAPER..");
+                    Thread.Sleep(waitingtime);
+                    Console.WriteLine("\n");
+
+                    Console.WriteLine("..SCISSORS..");
+                    Thread.Sleep(waitingtime);
+                    Console.WriteLine("\n");
+
 
                     Random rnd = new Random();
                     int computerchoice = rnd.Next(0, 3); //valitsee numeron 0-2 väliltä
