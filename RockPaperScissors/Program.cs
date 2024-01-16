@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading;
+using System.Collections.Generic;
+
 
 namespace RockPaperScissors
 {
@@ -17,26 +19,40 @@ namespace RockPaperScissors
                 Console.WriteLine("\n 0 = Rock \n 1 = Paper \n 2 = Scissors \n 3 = Exit game");
                 try
                 {
+                    Console.WriteLine("\n");
                     int userchoice = Convert.ToInt32(Console.ReadLine());
                     //Console.WriteLine(userchoice);
+             
+                    if (userchoice == 3)
+                    {
+                        //huolehdi että jos painaa 3 vaihtoehdon niin ei tarjoa vaihtoehdot listaa
+                        
+                        Console.Clear();
+                        Environment.Exit(0);
+                    }
 
                     int waitingtime = 500;
+                    Console.WriteLine("\n");
+                    //array/lista jossa on string parametrit
+                    var itemsofgame = new List<string>()
+                    {
+                        "Rock..",
+                        "..Paper..",
+                        "..Scissors!"
+                    };
 
 
-                    //Metodikutsu joka näyttää 
-                    PrintandWait("Rock..", waitingtime);
-                    PrintandWait("..Paper..", waitingtime);
-                    PrintandWait("..Scissors", waitingtime);
+                    for (int i= 0; i<3; i++)
+                    {
+                        PrintandWait(itemsofgame[i], waitingtime);
+                    }
 
                     Random rnd = new Random();
                     int computerchoice = rnd.Next(0, 3); //valitsee numeron 0-2 väliltä
+                    
 
-                    if (userchoice == 3)
-                    {
-                        Console.Clear();
-                    }
 
-                    else if (userchoice == 0 && computerchoice == 1)
+                    if (userchoice == 0 && computerchoice == 1)
                     {
                         Console.WriteLine("Computer is the winner! Paper Beats Rock!");
                     }
@@ -64,6 +80,7 @@ namespace RockPaperScissors
                     {
                         Console.WriteLine("Oh you had same choice it's even. Try again.");
                     }
+                    Console.WriteLine("\n");
                 }
                 catch (Exception)
                 {
@@ -73,12 +90,12 @@ namespace RockPaperScissors
             }
         }
 
-        static void PrintandWait(string gameitems, int aika)
+        static void PrintandWait(string gameitems, int waiting)
         {
             Console.WriteLine(gameitems);
-            Thread.Sleep(aika);
+            Thread.Sleep(waiting);
             Console.WriteLine("\n");
-
         }
+
     }
 }
