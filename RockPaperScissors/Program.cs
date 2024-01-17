@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Collections.Generic;
-
+using System.IO;
 
 namespace RockPaperScissors
 {
@@ -25,11 +25,39 @@ namespace RockPaperScissors
              
                     if (userchoice == 3)
                     {
-                        //huolehdi että jos painaa 3 vaihtoehdon niin ei tarjoa vaihtoehdot listaa
-                        
                         Console.Clear();
                         Environment.Exit(0);
                     }
+
+
+                    String line;
+                    try
+                    {
+                    //Pass the file path and file name to the StreamReader constructor
+                        StreamReader readingfile = new StreamReader(@"C:\Users\JuttaVirta_0sfcjaf\source\repos\RPSfile.txt");
+                    //Read the first line of text
+                        line = readingfile.ReadLine();
+                    //Continue to read until you reach end of file
+                        while (line != null)
+                        {
+                    //write the line to console window
+                             Console.WriteLine(line);
+                    //Read the next line
+                             line = readingfile.ReadLine();
+                        }
+                    //close the file
+                        readingfile.Close();
+                        Console.ReadLine();
+                    }
+                    catch(Exception e)
+                    {
+                    Console.WriteLine("Exception: " + e.Message);
+                    }
+                    finally
+                    {
+                    Console.WriteLine("Executing finally block.");
+                    }
+                   
 
                     int waitingtime = 500;
                     Console.WriteLine("\n");
