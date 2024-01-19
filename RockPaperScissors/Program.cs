@@ -9,8 +9,8 @@ namespace RockPaperScissors
     {
         static void Main(string[] args)
         {
-            //KIVI, PAPERI ja SAKSET-konsolipeli
-            Console.WriteLine("welcome to play rock-paper-scissors -game!");
+
+            Console.WriteLine("Welcome to play Rock-Paper-Scissors -game!");
 
             while (true)
             {
@@ -20,32 +20,61 @@ namespace RockPaperScissors
                 try
                 {
                     Console.WriteLine("\n");
+                    //ohjataan tietokonetta lukemaan pelaajan valinta konsolista ja luodaan se
                     int userchoice = Convert.ToInt32(Console.ReadLine());
-                    //Console.WriteLine(userchoice);
+                    //tulostetaan konsoliin pelaajan valinta.
+
+
+                    Console.WriteLine("Enter your name:");
+                    string userInput = Console.ReadLine();
+
+                    // Tiedostopolku jonne userinput tallentuu
+                    string filePath = @"C:\Users\JuttaVirta_0sfcjaf\source\repos\RPSfile.txt";
+
+                    // Streamwriter kirjottaa syötteen konsolista tekstitiedostoon, mutta nyt se päällekirjoittaa
+                    //Peli ei myöskään käänny koska konsolissa on kirjaimia eikä numeroita
+                    using (StreamWriter writer = new StreamWriter(filePath)) //kirjoittajaolio
+                    {
+                        writer.WriteLine(userInput);
+                    }
+
+                    Console.WriteLine("Text saved to " + filePath);
+
              
+                    //if loop joka tarkistaa onko syotteessä kolmonen ja jos on puhdistaa konsolin sisällön ja poistuu
                     if (userchoice == 3)
                     {
                         Console.Clear();
                         Environment.Exit(0);
                     }
 
+                    //luodaan tyhjä lista valinnoille mutta tietokone ei tee vielä listalla mitään
+                    var itemsofgame = new List<string>()
+                    {      
+                    };
 
+                    //Koneella tiedosto jossa sisältönä valinnat. Koska tosielämässä tehdäään KPS-liike ennen lopputulosta
+                    //luodaan string tiedostoriville jotta voidaan tallentaa siihen ja try-loop joka lukee tiedoston sisältöä riviriviltä ja lisää sen yllä olevaan listaan
+                    //
                     String line;
                     try
                     {
-                    //Pass the file path and file name to the StreamReader constructor
+                        //hakee tiedoston
                         StreamReader readingfile = new StreamReader(@"C:\Users\JuttaVirta_0sfcjaf\source\repos\RPSfile.txt");
-                    //Read the first line of text
+                        
+                        //Lukee tiedoston ensimmäisen rivin
                         line = readingfile.ReadLine();
-                    //Continue to read until you reach end of file
+                        //Lisää sisällön aiempaan tyhjään listaan
+                        itemsofgame.Add(line);
+
+                        //Jatkaa tiedoston lukemista kunnes rivi null eli tyhjä
                         while (line != null)
                         {
-                    //write the line to console window
-                             Console.WriteLine(line);
-                    //Read the next line
-                             line = readingfile.ReadLine();
+                            //Lukee toisesta rivistä elkaen ja lisää tyhjään listaan
+                            line = readingfile.ReadLine();
+                            itemsofgame.Add(line);
                         }
-                    //close the file
+                        //Sulkee tiedoston
                         readingfile.Close();
                         Console.ReadLine();
                     }
@@ -55,19 +84,11 @@ namespace RockPaperScissors
                     }
                     finally
                     {
-                    Console.WriteLine("Executing finally block.");
+                   // Console.WriteLine("Tekstitiedoston lukeminen ja siitä sisällön lisääminen listaan päättyy");
                     }
-                   
-
+                    //Odottaa ja tulostaa tyhjän rivin
                     int waitingtime = 500;
                     Console.WriteLine("\n");
-                    //array/lista jossa on string parametrit
-                    var itemsofgame = new List<string>()
-                    {
-                        "Rock..",
-                        "..Paper..",
-                        "..Scissors!"
-                    };
 
 
                     for (int i= 0; i<3; i++)
@@ -75,9 +96,9 @@ namespace RockPaperScissors
                         PrintandWait(itemsofgame[i], waitingtime);
                     }
 
+                    //tietokone valitsee numeron 0-2 väliltä
                     Random rnd = new Random();
-                    int computerchoice = rnd.Next(0, 3); //valitsee numeron 0-2 väliltä
-                    
+                    int computerchoice = rnd.Next(0, 3);
 
 
                     if (userchoice == 0 && computerchoice == 1)
@@ -115,8 +136,9 @@ namespace RockPaperScissors
                     Console.WriteLine("\nERROR! Use only numbers.\n");
 
                 }
-            }
-        }
+            } //while päättyy
+        } //main päättyy
+
 
         static void PrintandWait(string gameitems, int waiting)
         {
